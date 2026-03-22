@@ -14,6 +14,6 @@ kubectl get pods → Lists all pods
 -w → Watch mode (continuously streams updates in real-time)
 
 universal solution to resolve "certificate: x509: certificate signed by unknown authority"
-
+===========================================================================================
 openssl s_client -connect auth.docker.io:443 -showcerts </dev/null 2>/dev/null | sed -n '/BEGIN CERTIFICATE/,/END CERTIFICATE/p' > ~/.config/certs/proxy-ca.pem 
 k3d cluster create mycluster --volume /Users/Prabhuraj.Murugesan/.config/certs/proxy-ca.pem:/etc/ssl/certs/extra-cas.pem
