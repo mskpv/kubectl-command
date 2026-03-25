@@ -17,3 +17,8 @@ universal solution to resolve "certificate: x509: certificate signed by unknown 
 ===========================================================================================
 openssl s_client -connect auth.docker.io:443 -showcerts </dev/null 2>/dev/null | sed -n '/BEGIN CERTIFICATE/,/END CERTIFICATE/p' > ~/.config/certs/proxy-ca.pem 
 k3d cluster create mycluster --volume /Users/Prabhuraj.Murugesan/.config/certs/proxy-ca.pem:/etc/ssl/certs/extra-cas.pem
+
+
+execute command from one cluster to other cluster in cli
+--------------------------------------------------------
+kubectl get ingress smsdelivery -n sms --context=arn:aws:eks:us-east-1:<account-id>:cluster/<cluster name> -o yaml | grep -A2 mirror
